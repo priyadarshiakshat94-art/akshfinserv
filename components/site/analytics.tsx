@@ -7,6 +7,8 @@ import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA4_ID;
 const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+// Vercel Analytics only works when hosted on Vercel, which exposes this variable at build time.
+const ON_VERCEL = !!process.env.NEXT_PUBLIC_VERCEL_ENV;
 
 // GA4 tracks client-side navigations itself (enhanced measurement), but the
 // Meta Pixel only fires PageView on full loads, so send it on route changes.
@@ -23,11 +25,11 @@ function PixelPageViews() {
   return null;
 }
 
-/** Loads GA4 and Meta Pixel only when their IDs are set, plus Vercel Analytics. */
+/** Loads GA4 and Meta Pixel only when their IDs are set, and Vercel Analytics only on Vercel. */
 export function Analytics() {
   return (
     <>
-      <VercelAnalytics />
+      {ON_VERCEL ? <VercelAnalytics /> : null}
 
       {GA_ID ? (
         <>

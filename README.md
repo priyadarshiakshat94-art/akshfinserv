@@ -1,6 +1,6 @@
 # akshfinserv.com
 
-Marketing site for Aksh Finserv, Powai. Next.js 15 (App Router), Tailwind CSS v4, shadcn/ui, Framer Motion. Content is Markdown in `/content`; there is no CMS or database. Deploys to Vercel.
+Marketing site for Aksh Finserv, Powai. Next.js 15 (App Router), Tailwind CSS v4, shadcn/ui, Framer Motion. Content is Markdown in `/content`; there is no CMS or database. Deploys to Netlify (or Vercel).
 
 Content editors: see [EDITING.md](EDITING.md).
 
@@ -28,14 +28,16 @@ Without Resend or Turnstile keys, the forms still work locally: email sending an
 
 Testimonials with `consentGiven: false` render in development only, never in a production build.
 
-## Deploy (Vercel)
+## Deploy (Netlify)
 
-1. Import the repository in Vercel. Framework preset: Next.js.
-2. Add the environment variables from `.env.example`. `NEXT_PUBLIC_*` values are baked in at build time, so redeploy after changing them.
+1. In Netlify: **Add new site**, then **Import an existing project**, then GitHub, and pick this repository. `netlify.toml` already sets the build command, publish folder and Node 22; Netlify adds its Next.js runtime automatically.
+2. Before the first deploy, add the environment variables from `.env.example` under **Site configuration**, then **Environment variables**. `NEXT_PUBLIC_*` values are baked in at build time, so trigger a new deploy after changing them.
 3. `npm run build` runs `next-sitemap` afterwards, writing `public/sitemap.xml` and `public/robots.txt`.
+
+Vercel also works: import the repository with the Next.js preset and add the same variables. Vercel Analytics switches itself on only there.
 
 Notes:
 
-- `data/*.jsonl` backup logs do not persist on Vercel (read-only filesystem). Resend email is the record of each lead.
+- `data/*.jsonl` backup logs do not persist on Netlify or Vercel (read-only filesystem). Resend email is the record of each lead.
 - The form rate limit is in memory per server instance. Move it to Vercel KV or Upstash if traffic grows.
 - GA4 and the Meta Pixel load only when their IDs are set. There is no cookie consent banner yet.
