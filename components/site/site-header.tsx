@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLogo } from "@/components/site/brand-logo";
 
 const NAV = [
   { href: "/how-we-work", label: "How we work" },
@@ -10,8 +11,8 @@ const NAV = [
 export function SiteHeader() {
   return (
     <header className="relative z-20 mx-auto flex w-full max-w-[1320px] items-center justify-between px-5 py-6 sm:px-8">
-      <Link href="/" className="font-display text-[1.15rem] font-medium tracking-[-0.02em] text-ink">
-        Aksh<span className="text-ink-secondary"> Finserv</span>
+      <Link href="/" aria-label="Aksh Finserv, home" className="shrink-0 text-ink">
+        <BrandLogo className="h-8 w-auto sm:h-9" />
       </Link>
       <nav aria-label="Primary" className="hidden items-center gap-8 text-sm text-ink-secondary md:flex">
         {NAV.map((item) => (

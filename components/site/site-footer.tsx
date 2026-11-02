@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { NewsletterForm } from "./newsletter-form";
 
@@ -50,10 +51,16 @@ export function SiteFooter() {
       <div className="mx-auto w-full max-w-[1320px] px-5 pb-10 pt-20 sm:px-8">
         <div className="grid gap-14 lg:grid-cols-[1.1fr_2fr]">
           <div>
-            <Link href="/" className="font-display text-[2rem] font-medium tracking-[-0.03em] text-ink">
-              Aksh<span className="text-ink-secondary"> Finserv</span>
+            <Link href="/" aria-label="Aksh Finserv, home" className="inline-block">
+              <Image
+                src="/brand/logo-horizontal-light-on-dark.svg"
+                alt="Aksh Finserv, Powai, since 2002"
+                width={330}
+                height={85}
+                unoptimized
+                className="h-auto w-[300px] sm:w-[330px]"
+              />
             </Link>
-            {/* TODO before launch: add the real ARN number. */}
             <p className="mt-4 text-sm text-ink-secondary">
               AMFI Registered Mutual Fund Distributor (ARN-121998).
             </p>
