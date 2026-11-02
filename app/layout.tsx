@@ -1,19 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Inter_Tight } from "next/font/google";
+import localFont from "next/font/local";
 import { Analytics } from "@/components/site/analytics";
 import "./globals.css";
 
-const inter = Inter({
+// Self-hosted so builds never depend on fetching from Google Fonts.
+const inter = localFont({
   variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["400", "500"],
+  src: "../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2",
+  weight: "100 900",
+  display: "swap",
 });
 
 // Fallback display face while General Sans (Fontshare) loads, or if it fails.
-const interTight = Inter_Tight({
+const interTight = localFont({
   variable: "--font-inter-tight",
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  src: "../node_modules/@fontsource-variable/inter-tight/files/inter-tight-latin-wght-normal.woff2",
+  weight: "100 900",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
