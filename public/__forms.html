@@ -6,7 +6,7 @@
     <title>Forms</title>
   </head>
   <body>
-    <!-- Detected by Netlify Forms at deploy. Field names must match components/site/book-call-form.tsx. -->
+    <!-- Detected by Netlify Forms at deploy. Field names must match components/site/book-call-form.tsx and lead-form.tsx. -->
     <form name="book-call" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="text" name="bot-field" />
       <input type="text" name="name" />
@@ -14,6 +14,14 @@
       <input type="date" name="date" />
       <input type="text" name="slot" />
       <input type="text" name="topic" />
+    </form>
+    <form name="enquiry" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="bot-field" />
+      <input type="text" name="name" />
+      <input type="tel" name="mobile" />
+      <input type="email" name="email" />
+      <input type="text" name="city" />
+      <input type="text" name="intent" />
     </form>
   </body>
 </html>

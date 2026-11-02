@@ -1,13 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
+import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { leadIntents, leadSchema, type Lead } from "@/lib/lead";
 import { cn } from "@/lib/utils";
 import { trackLead } from "@/lib/track";
-
-const SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
 const INTENT_LABEL: Record<Lead["intent"], string> = {
   "portfolio-review": "Review my portfolio",
@@ -26,7 +23,6 @@ const THEME = {
     muted: "text-[#3d2f1a]/80",
     error: "text-[#7a2a14]",
     sent: "bg-ink-dark/10",
-    turnstile: "light" as const,
   },
   // Sits on charcoal.
   dark: {
@@ -36,12 +32,12 @@ const THEME = {
     muted: "text-ink-muted",
     error: "text-[#f0937c]",
     sent: "bg-elevated-2",
-    turnstile: "dark" as const,
   },
 };
 
 /**
- * Lead capture form posting to /api/lead.
+ * Lead capture form, submitted to Netlify Forms as "enquiry". The matching static form in
+ * public/__forms.html is what Netlify detects at deploy; field names must stay in sync.
  * `full` adds email, city and a topic picker (contact page); the default is name + mobile.
  * With `full`, ?intent= in the URL preselects the topic.
  */
@@ -57,9 +53,7 @@ export function LeadForm({
   const t = THEME[variant];
   const [status, setStatus] = useState<Status>({ kind: "idle" });
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [token, setToken] = useState<string | null>(null);
   const [intent, setIntent] = useState<Lead["intent"]>(defaultIntent);
-  const turnstile = useRef<TurnstileInstance>(null);
 
   useEffect(() => {
     if (!full) return;
@@ -84,26 +78,28 @@ export function LeadForm({
       return;
     }
     setErrors({});
-    if (SITE_KEY && !token) {
-      setStatus({ kind: "error", message: "Please wait for the security check to finish." });
-      return;
-    }
-
     setStatus({ kind: "sending" });
+
+    const body = new URLSearchParams({
+      "form-name": "enquiry",
+      "bot-field": String(form.get("bot-field") ?? ""),
+      name: parsed.data.name,
+      mobile: parsed.data.mobile,
+      email: parsed.data.email ?? "",
+      city: parsed.data.city ?? "",
+      intent: INTENT_LABEL[intent],
+    });
     try {
-      const res = await fetch("/api/lead", {
+      const res = await fetch("/__forms.html", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...payload, website: form.get("website"), turnstileToken: token }),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString(),
       });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok || !data.ok) throw new Error(data.error ?? "Something went wrong. Please email plabita@akshfinserv.com.");
+      if (!res.ok) throw new Error(String(res.status));
       trackLead(intent);
       setStatus({ kind: "sent" });
-    } catch (err) {
-      setStatus({ kind: "error", message: (err as Error).message });
-      turnstile.current?.reset();
-      setToken(null);
+    } catch {
+      setStatus({ kind: "error", message: "We could not send your request. Please email plabita@akshfinserv.com." });
     }
   }
 
@@ -150,7 +146,7 @@ export function LeadForm({
   return (
     <form onSubmit={onSubmit} noValidate className="flex flex-col gap-3">
       {/* Honeypot: real visitors never see or fill this. */}
-      <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" />
+      <input type="text" name="bot-field" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" />
 
       {full ? (
         <fieldset className="mb-3">
@@ -186,16 +182,6 @@ export function LeadForm({
           {input("email", "Email (optional)", { type: "email", autoComplete: "email" })}
           {input("city", "City (optional)", { autoComplete: "address-level2" })}
         </div>
-      ) : null}
-
-      {SITE_KEY ? (
-        <Turnstile
-          ref={turnstile}
-          siteKey={SITE_KEY}
-          onSuccess={setToken}
-          onExpire={() => setToken(null)}
-          options={{ theme: t.turnstile, size: "flexible", appearance: "interaction-only" }}
-        />
       ) : null}
 
       <button
