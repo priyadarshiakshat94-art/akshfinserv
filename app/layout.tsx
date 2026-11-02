@@ -19,11 +19,11 @@ const interTight = Inter_Tight({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://akshfinserv.com"),
   title: {
-    default: "Aksh Finserv | Wealth advice from Powai, Mumbai, since 1998",
+    default: "Aksh Finserv | Wealth advice from Powai, Mumbai, since 2002",
     template: "%s | Aksh Finserv",
   },
   description:
-    "AMFI-registered mutual fund distributor in Powai, Mumbai. ₹250 Cr under advice for 1,500 families since 1998.",
+    "AMFI-registered mutual fund distributor in Powai, Mumbai. ₹250 Cr under advice for 1,500 families since 2002.",
 };
 
 export const viewport: Viewport = {

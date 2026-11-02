@@ -43,7 +43,7 @@ export default function HomePage() {
         type="FinancialService"
         id={`${SITE_URL}/#business`}
         name="Aksh Finserv"
-        description="AMFI-registered mutual fund distributor in Powai, Mumbai, serving families since 1998."
+        description="AMFI-registered mutual fund distributor in Powai, Mumbai, serving families since 2002."
         url={SITE_URL}
         address={{
           streetAddress: "363, Powai Plaza, Central Avenue, Hiranandani Gardens",

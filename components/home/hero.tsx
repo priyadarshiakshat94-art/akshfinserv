@@ -24,7 +24,7 @@ export function Hero() {
       <div className="mx-auto grid w-full max-w-[1320px] items-center gap-16 px-5 pb-24 pt-10 sm:px-8 lg:min-h-[calc(100svh-96px)] lg:grid-cols-[1.05fr_1fr] lg:gap-10 lg:pb-16 lg:pt-0">
         <div className="animate-in fade-in duration-400 ease-out">
           <h1 className="sr-only">
-            Aksh Finserv: mutual fund distribution and wealth advice in Powai, Mumbai, since 1998
+            Aksh Finserv: mutual fund distribution and wealth advice in Powai, Mumbai, since 2002
           </h1>
 
           <p className="flex flex-wrap items-baseline gap-x-4 gap-y-1" aria-label="250 crore rupees under advice">
@@ -39,7 +39,7 @@ export function Hero() {
             <span aria-hidden>·</span>
             <span>Mumbai</span>
             <span aria-hidden>·</span>
-            <span>Since 1998</span>
+            <span>Since 2002</span>
             <span aria-hidden className="relative ml-1 grid size-3 place-items-center rounded-full border border-gold/50">
               <span className="size-1.5 rounded-full bg-gold" />
             </span>

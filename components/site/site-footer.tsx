@@ -110,7 +110,7 @@ export function SiteFooter() {
             solicitation.
           </p>
           <div className="flex flex-col gap-2 pt-4 sm:flex-row sm:justify-between">
-            <p>© {new Date().getFullYear()} Aksh Finserv. Powai, Mumbai. Since 1998.</p>
+            <p>© {new Date().getFullYear()} Aksh Finserv. Powai, Mumbai. Since 2002.</p>
             <p className="flex gap-5">
               <Link href="/disclosures" className="hover:text-ink">Disclosures</Link>
               <Link href="/privacy" className="hover:text-ink">Privacy</Link>

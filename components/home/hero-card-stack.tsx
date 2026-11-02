@@ -89,7 +89,7 @@ export function HeroCardStack() {
         >
           <div className="flex items-start justify-between">
             <span className="text-[3.1cqw] text-ink-secondary">Clients</span>
-            <span className="text-[2.6cqw] tracking-[0.2em] text-ink-muted">EST. 1998</span>
+            <span className="text-[2.6cqw] tracking-[0.2em] text-ink-muted">EST. 2002</span>
           </div>
           <p className="flex items-baseline gap-[2cqw]">
             <span className="display-num text-[13cqw] text-ink">1,500</span>
@@ -129,7 +129,7 @@ export function HeroCardStack() {
         >
           <span className="text-[3.4cqw] leading-tight text-[#3d2f1a]">In practice</span>
           <p className="flex flex-col">
-            <span className="display-num text-[19cqw]">28</span>
+            <span className="display-num text-[19cqw]">24</span>
             <span className="mt-[1.5cqw] font-display text-[4.6cqw] font-light leading-none text-[#3d2f1a]">
               years
             </span>
