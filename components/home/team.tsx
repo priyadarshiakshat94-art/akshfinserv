@@ -6,20 +6,20 @@ import { FadeIn } from "@/components/motion/fade-in";
 import { publicFileExists } from "@/lib/assets";
 
 export function Team() {
-  const team = getAllTeam().slice(0, 3);
+  const team = getAllTeam().slice(0, 2);
 
   return (
     <Section>
       <SectionHeading
         eyebrow="The people"
-        title="Three people. You will know each of them by name."
+        title="Two people. You will know both of them by name."
         aside={
           <Link href="/about" className="text-ink underline decoration-line-hover underline-offset-4 hover:decoration-gold">
             Read full bios
           </Link>
         }
       />
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-2">
         {team.map((m, i) => (
           <FadeIn key={m.slug} delay={i * 0.05}>
             <article className="card-lift flex h-full flex-col rounded-card bg-elevated p-3">
@@ -29,7 +29,7 @@ export function Team() {
                     src={m.photo}
                     alt={m.photoAlt}
                     fill
-                    sizes="(min-width: 768px) 33vw, 100vw"
+                    sizes="(min-width: 768px) 50vw, 100vw"
                     className="object-cover grayscale-[35%]"
                   />
                 ) : (

@@ -107,7 +107,7 @@ export function LeadForm({
     return (
       <div role="status" className={cn("rounded-[20px] p-6", t.sent)}>
         <p className="font-display text-2xl">Thank you. We have your details.</p>
-        <p className={cn("mt-2", t.muted)}>Plabita or Shailee will call you within one working day.</p>
+        <p className={cn("mt-2", t.muted)}>Plabita or Sanjiv will call you within one working day.</p>
       </div>
     );
   }

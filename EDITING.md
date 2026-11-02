@@ -23,7 +23,7 @@ To add a new testimonial: in the **testimonials** folder, click **Add file**, th
    - `slug:` must match the file name, without `.mdx`.
    - `category:` must be one of `markets`, `planning`, `interviews`, `client-letters`, `guides`.
    - `excerpt:` is one or two sentences, between 60 and 220 characters.
-   - `author:` is `plabita`, `sanjiv` or `shailee`.
+   - `author:` is `plabita` or `sanjiv`.
    - `publishedAt:` is the date, written like `2026-11-15`.
 5. Below the second `---`, write the article. Start a heading with `## `. Make a bold word with `**word**`.
 6. Click **Commit changes...**, then **Commit changes**.
@@ -32,7 +32,7 @@ To add a new testimonial: in the **testimonials** folder, click **Add file**, th
 
 1. Prepare the photo as a JPG, roughly 1200 pixels wide, under 500 KB.
 2. Go to **public**, then **images**, then **team**. Click **Add file**, then **Upload files**.
-3. Drag the photo in. Name it exactly as the team file expects: `plabita.jpg`, `sanjiv.jpg` or `shailee.jpg`. Uploading a file with the same name replaces the old photo.
+3. Drag the photo in. Name it exactly as the team file expects: `plabita.jpg` or `sanjiv.jpg`. Uploading a file with the same name replaces the old photo.
 4. Click **Commit changes**.
 5. Optional: open **content**, then **team**, then the person's `.md` file, and update `photoAlt:` to describe the photo in a few words.
 
