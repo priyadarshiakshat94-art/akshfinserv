@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const ITEMS = [
   {
     title: "Registration",
-    body: "Aksh Finserv is an AMFI-registered Mutual Fund Distributor, ARN-XXXXXX. We are not registered with SEBI as an Investment Adviser or Research Analyst.",
+    body: "Aksh Finserv is an AMFI-registered Mutual Fund Distributor, ARN-121998. We are not registered with SEBI as an Investment Adviser or Research Analyst.",
   },
   {
     title: "How we are paid",

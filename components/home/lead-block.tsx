@@ -2,6 +2,7 @@ import { CalendarDays } from "lucide-react";
 import { Section } from "@/components/site/section";
 import { FadeIn } from "@/components/motion/fade-in";
 import { LeadForm } from "@/components/site/lead-form";
+import { BookCallForm } from "@/components/site/book-call-form";
 
 const CAL_URL = process.env.NEXT_PUBLIC_CALCOM_URL;
 
@@ -26,7 +27,7 @@ export function LeadBlock() {
             <p className="text-sm text-ink-secondary">With Plabita</p>
             <h2 className="mt-4 text-[clamp(2rem,3.6vw,3rem)] text-ink">Book a 30-min call</h2>
             <p className="mt-4 max-w-[28rem] text-ink-secondary">
-              Pick a slot. Bring one question. Most first calls end with a clear next step, or a clear reason to
+              Pick a day and time. Bring one question. Most first calls end with a clear next step, or a clear reason to
               wait.
             </p>
           </div>
@@ -42,13 +43,7 @@ export function LeadBlock() {
               See open slots
             </a>
           ) : (
-            // Placeholder until NEXT_PUBLIC_CALCOM_URL is set; swap for the Cal.com embed then.
-            <div className="grid min-h-[12rem] place-items-center rounded-[20px] border border-dashed border-line-hover bg-elevated-2/60 p-6 text-center">
-              <div>
-                <CalendarDays className="mx-auto size-6 text-ink-muted" strokeWidth={1.5} />
-                <p className="mt-3 text-sm text-ink-muted">Cal.com booking embed goes here</p>
-              </div>
-            </div>
+            <BookCallForm />
           )}
         </div>
       </FadeIn>

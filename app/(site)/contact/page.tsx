@@ -55,12 +55,14 @@ export default function ContactPage() {
               <p className="mt-8 text-sm text-ink-secondary">Email</p>
               <p className="mt-2 font-display text-xl text-ink">plabita@akshfinserv.com</p>
             </a>
-            {CAL_URL ? (
-              <a href={CAL_URL} target="_blank" rel="noopener noreferrer" className="card-lift rounded-card bg-gold p-8 text-ink-dark">
-                <CalendarDays className="size-5" strokeWidth={1.5} />
-                <p className="mt-8 font-display text-xl">Book a 30-min call with Plabita</p>
-              </a>
-            ) : null}
+            <a
+              href={CAL_URL ?? "/#book-call"}
+              {...(CAL_URL ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              className="card-lift rounded-card bg-gold p-8 text-ink-dark"
+            >
+              <CalendarDays className="size-5" strokeWidth={1.5} />
+              <p className="mt-8 font-display text-xl">Book a 30-min call with Plabita</p>
+            </a>
           </div>
         </div>
       </Section>
