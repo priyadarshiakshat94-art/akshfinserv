@@ -55,7 +55,7 @@ export function SiteFooter() {
             </Link>
             {/* TODO before launch: add the real ARN number. */}
             <p className="mt-4 text-sm text-ink-secondary">
-              AMFI-registered Mutual Fund Distributor. ARN-XXXXXX.
+              AMFI Registered Mutual Fund Distributor (ARN-XXXXXX).
             </p>
             <address className="mt-8 text-sm not-italic leading-relaxed text-ink-secondary">
               363, Powai Plaza, Central Avenue

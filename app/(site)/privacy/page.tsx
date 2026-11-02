@@ -21,7 +21,7 @@ const ITEMS = [
   },
   {
     title: "Who sees it",
-    body: "Our advisors. We use an email delivery service and a spam check (Cloudflare Turnstile) to process the form. We do not sell or share your details with anyone for marketing.",
+    body: "Our team. We use an email delivery service and a spam check (Cloudflare Turnstile) to process the form. We do not sell or share your details with anyone for marketing.",
   },
   {
     title: "Analytics",

@@ -12,7 +12,7 @@ export function Team() {
     <Section>
       <SectionHeading
         eyebrow="The people"
-        title="Three advisors. You will know each of them by name."
+        title="Three people. You will know each of them by name."
         aside={
           <Link href="/about" className="text-ink underline decoration-line-hover underline-offset-4 hover:decoration-gold">
             Read full bios

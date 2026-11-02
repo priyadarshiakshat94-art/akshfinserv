@@ -88,7 +88,7 @@ export default function HowWeWorkPage() {
         <div className="grid gap-4 lg:grid-cols-2">
           <FadeIn className="rounded-card bg-surface-light p-8 text-ink-dark lg:p-10">
             <p className="text-sm text-[#5c574f]">How we are paid</p>
-            <h2 className="mt-4 text-[clamp(1.8rem,3vw,2.5rem)]">No fee for advice. Here is where our income comes from.</h2>
+            <h2 className="mt-4 text-[clamp(1.8rem,3vw,2.5rem)]">No separate fee. Here is where our income comes from.</h2>
             <div className="mt-6 space-y-4 text-[#3d3a35]">
               <p>
                 We are an AMFI-registered mutual fund distributor. Fund houses pay us a trail commission on regular

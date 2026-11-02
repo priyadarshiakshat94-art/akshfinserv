@@ -11,14 +11,14 @@ import { CtaBand } from "@/components/site/cta-band";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Aksh Finserv has advised Mumbai families from one office in Powai since 2002. Meet Plabita, Sanjiv and Shailee.",
+    "Aksh Finserv has worked with Mumbai families from one office in Powai since 2002. Meet Plabita, Sanjiv and Shailee.",
   alternates: { canonical: "/about" },
 };
 
 const FACTS = [
   { value: "2002", label: "First client, Powai" },
   { value: "1,500", label: "Families today" },
-  { value: "₹250 Cr", label: "Under advice" },
+  { value: "₹250 Cr", label: "Invested through us" },
   { value: "100+", label: "Industry awards" },
 ];
 
@@ -49,7 +49,7 @@ export default function AboutPage() {
       </Section>
 
       <Section className="pt-0 lg:pt-0">
-        <SectionHeading eyebrow="The people" title="Three advisors. Every client knows at least one by first name." />
+        <SectionHeading eyebrow="The people" title="Three people. Every client knows at least one by first name." />
         <div className="space-y-4">
           {team.map((m) => (
             <FadeIn key={m.slug}>

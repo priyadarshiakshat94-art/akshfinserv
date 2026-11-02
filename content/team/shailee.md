@@ -1,14 +1,13 @@
 ---
 name: "Shailee"
 slug: "shailee"
-role: "Principal Advisor, Mutual Funds & Annuity"
+role: "Head of Mutual Funds & Annuity"
 shortBio: "Builds and reviews mutual fund portfolios. Brings the next generation's questions to the table."
 credentials:
-  - "AMFI Accredited Investment Consultant"
   - "Graduate, Symbiosis School of Liberal Arts"
   - "MDP, IIM Indore"
 photo: "/images/team/shailee.jpg"
-photoAlt: "Shailee, Principal Advisor for Mutual Funds and Annuity at Aksh Finserv"
+photoAlt: "Shailee, Head of Mutual Funds and Annuity at Aksh Finserv"
 order: 3
 ---
 

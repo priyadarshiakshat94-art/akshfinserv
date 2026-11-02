@@ -10,11 +10,10 @@ export function LeadBlock() {
     <Section>
       <FadeIn className="grid gap-4 lg:grid-cols-2">
         <div id="review-portfolio" className="scroll-mt-24 rounded-card bg-gold p-8 text-ink-dark sm:p-10 lg:p-12">
-          <p className="text-sm text-[#3d2f1a]">Free, no obligation</p>
-          <h2 className="mt-4 text-[clamp(2rem,3.6vw,3rem)]">Review my portfolio</h2>
+          <p className="text-sm text-[#3d2f1a]">Talk to us</p>
+          <h2 className="mt-4 text-[clamp(2rem,3.6vw,3rem)]">Tell us what you&apos;d like to sort out</h2>
           <p className="mb-10 mt-4 max-w-[28rem] text-[#3d2f1a]">
-            Leave a name and number. We call within one working day and ask for your statements. You get a
-            one-page review in writing, even if you never invest with us.
+            Leave a name and number. We&apos;ll call within one working day.
           </p>
           <LeadForm />
         </div>

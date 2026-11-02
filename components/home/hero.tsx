@@ -24,13 +24,13 @@ export function Hero() {
       <div className="mx-auto grid w-full max-w-[1320px] items-center gap-16 px-5 pb-24 pt-10 sm:px-8 lg:min-h-[calc(100svh-96px)] lg:grid-cols-[1.05fr_1fr] lg:gap-10 lg:pb-16 lg:pt-0">
         <div className="animate-in fade-in duration-400 ease-out">
           <h1 className="sr-only">
-            Aksh Finserv: mutual fund distribution and wealth advice in Powai, Mumbai, since 2002
+            Aksh Finserv: mutual fund distribution in Powai, Mumbai, since 2002
           </h1>
 
-          <p className="flex flex-wrap items-baseline gap-x-4 gap-y-1" aria-label="250 crore rupees under advice">
+          <p className="flex flex-wrap items-baseline gap-x-4 gap-y-1" aria-label="250 crore rupees invested through us">
             <span className="display-num text-[clamp(4.5rem,13vw,10.5rem)] text-ink">₹250 Cr</span>
             <span className="font-display text-[clamp(1.5rem,3.4vw,2.75rem)] font-light tracking-[-0.03em] text-ink-muted">
-              under advice
+              invested through us
             </span>
           </p>
 

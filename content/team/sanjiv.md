@@ -1,14 +1,13 @@
 ---
 name: "Sanjiv P"
 slug: "sanjiv"
-role: "Founder & Principal Advisor"
+role: "Founder"
 shortBio: "Handles insurance, annuities and debt. The person you call when a policy document makes no sense."
 credentials:
-  - "IRDA Certified Investment Planner"
   - "Annuity & Debt Instruments"
   - "Life & Non-Life Insurance"
 photo: "/images/team/sanjiv.jpg"
-photoAlt: "Sanjiv P, Founder and Principal Advisor at Aksh Finserv"
+photoAlt: "Sanjiv P, Founder at Aksh Finserv"
 order: 2
 ---
 
