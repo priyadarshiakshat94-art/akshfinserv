@@ -12,7 +12,10 @@ export const CALL_SLOTS = ["10 am to 12 noon", "12 noon to 2 pm", "2 pm to 4 pm"
 const bookingSchema = z.object({
   name: leadSchema.shape.name,
   mobile: leadSchema.shape.mobile,
-  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Pick a day"),
+  date: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/, "Pick a day")
+    .refine((d) => new Date(`${d}T00:00:00`).getDay() !== 0, "We are closed on Sundays. Pick Monday to Saturday"),
   slot: z.enum(CALL_SLOTS, { message: "Pick a time" }),
   topic: z.string().trim().max(300).optional().or(z.literal("")),
 });
@@ -29,8 +32,17 @@ function isoDay(days: number) {
 /**
  * Call request form, submitted to Netlify Forms. The matching static form in
  * public/__forms.html is what Netlify detects at deploy; field names must stay in sync.
+ * `source` tags where the request came from; `requireConsent` adds an explicit contact consent box.
  */
-export function BookCallForm() {
+export function BookCallForm({
+  defaultTopic = "",
+  source = "home",
+  requireConsent = false,
+}: {
+  defaultTopic?: string;
+  source?: string;
+  requireConsent?: boolean;
+} = {}) {
   const [status, setStatus] = useState<Status>({ kind: "idle" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [minDay, maxDay] = useMemo(() => [isoDay(1), isoDay(30)], []);
@@ -45,8 +57,11 @@ export function BookCallForm() {
       slot: String(form.get("slot") ?? ""),
       topic: String(form.get("topic") ?? ""),
     });
-    if (!parsed.success) {
-      setErrors(Object.fromEntries(parsed.error.issues.map((i) => [String(i.path[0]), i.message])));
+    const consented = !requireConsent || form.get("consent") === "yes";
+    if (!parsed.success || !consented) {
+      const next: Record<string, string> = parsed.success ? {} : Object.fromEntries(parsed.error.issues.map((i) => [String(i.path[0]), i.message]));
+      if (!consented) next.consent = "Please tick the box so we can contact you about this call";
+      setErrors(next);
       return;
     }
     setErrors({});
@@ -57,6 +72,8 @@ export function BookCallForm() {
       "bot-field": String(form.get("bot-field") ?? ""),
       ...parsed.data,
       topic: parsed.data.topic ?? "",
+      source,
+      consent: requireConsent ? "yes" : "",
     });
     try {
       const res = await fetch("/__forms.html", {
@@ -65,7 +82,7 @@ export function BookCallForm() {
         body: body.toString(),
       });
       if (!res.ok) throw new Error(String(res.status));
-      trackLead("call-plabita");
+      trackLead(source === "home" ? "call-plabita" : `call-plabita-${source}`);
       const day = new Date(`${parsed.data.date}T00:00:00`).toLocaleDateString("en-IN", {
         weekday: "long",
         day: "numeric",
@@ -148,8 +165,32 @@ export function BookCallForm() {
       </div>
       <div>
         <label className="sr-only" htmlFor="call-topic">What would you like to talk about? (optional)</label>
-        <input id="call-topic" name="topic" placeholder="What would you like to talk about? (optional)" className={field} />
+        <input
+          id="call-topic"
+          name="topic"
+          defaultValue={defaultTopic}
+          maxLength={300}
+          placeholder="What would you like to talk about? (optional)"
+          className={field}
+        />
       </div>
+
+      {requireConsent ? (
+        <div>
+          <label className="flex items-start gap-3 px-2 text-sm text-ink-secondary" htmlFor="call-consent">
+            <input
+              id="call-consent"
+              name="consent"
+              type="checkbox"
+              value="yes"
+              className="mt-0.5 size-5 shrink-0 accent-[var(--accent)]"
+              {...a11y("consent")}
+            />
+            Aksh Finserv may call or message me on this number about this request. Nothing else, and no lists.
+          </label>
+          {err("consent")}
+        </div>
+      ) : null}
 
       <button
         type="submit"

@@ -16,6 +16,12 @@ export function trackLead(intent: string) {
   window.fbq?.("track", "Lead", { content_category: intent });
 }
 
+/** A GA4 custom event. Never pass personal details or test answers. */
+export function trackEvent(name: string, params: Record<string, string | number> = {}) {
+  if (typeof window === "undefined") return;
+  window.gtag?.("event", name, params);
+}
+
 export function trackNewsletterSignup() {
   if (typeof window === "undefined") return;
   window.gtag?.("event", "sign_up", { method: "newsletter" });

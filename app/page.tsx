@@ -4,6 +4,7 @@ import { Hero, HeroBackdrop } from "@/components/home/hero";
 import { CredibilityRibbon } from "@/components/home/credibility-ribbon";
 import { SolvingFor } from "@/components/home/solving-for";
 import { HowWeWorkStrip } from "@/components/home/how-we-work-strip";
+import { OnePageBand } from "@/components/home/one-page-band";
 import { WhyClientsStay } from "@/components/home/why-clients-stay";
 import { Testimonials } from "@/components/home/testimonials";
 import { Team } from "@/components/home/team";
@@ -30,6 +31,7 @@ export default function HomePage() {
         <CredibilityRibbon />
         <SolvingFor />
         <HowWeWorkStrip />
+        <OnePageBand />
         <WhyClientsStay />
         <Testimonials />
         <Team />
