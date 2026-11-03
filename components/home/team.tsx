@@ -30,7 +30,7 @@ export function Team() {
                     alt={m.photoAlt}
                     fill
                     sizes="(min-width: 768px) 50vw, 100vw"
-                    className="object-cover grayscale-[35%]"
+                    className="object-cover object-[50%_20%] grayscale-[35%]"
                   />
                 ) : (
                   <div aria-hidden className="grid h-full place-items-center">

@@ -9,7 +9,7 @@ credentials:
   - "AWMIE Top 100 Women in Finance 2019"
   - "Kotak Life Living Legend"
 photo: "/images/team/plabita.jpg"
-photoAlt: "Plabita Priyadarshi at the Aksh Finserv office in Powai"
+photoAlt: "Plabita Priyadarshi, Founder and Managing Director of Aksh Finserv"
 order: 1
 ---
 
