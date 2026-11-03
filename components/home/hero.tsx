@@ -51,17 +51,11 @@ export function Hero() {
 
           <div className="mt-10 flex flex-wrap items-center gap-3">
             <Link
-              href="/#review-portfolio"
+              href="/#book-call"
               className="group inline-flex h-13 items-center gap-2 rounded-pill bg-gold px-7 text-[0.95rem] font-medium text-ink-dark transition-colors duration-200 hover:bg-gold-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
             >
-              Review my portfolio
-              <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" strokeWidth={1.75} />
-            </Link>
-            <Link
-              href="/#book-call"
-              className="inline-flex h-13 items-center rounded-pill border border-line px-7 text-[0.95rem] font-medium text-ink transition-colors duration-200 hover:border-line-hover hover:bg-elevated focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
-            >
               Talk to Plabita
+              <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" strokeWidth={1.75} />
             </Link>
           </div>
         </div>
