@@ -192,7 +192,7 @@ export function LeadForm({
           t.button,
         )}
       >
-        {status.kind === "sending" ? "Sending" : full ? "Send" : "Review my portfolio"}
+        {status.kind === "sending" ? "Sending" : full ? "Send" : "Talk to Plabita"}
         <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" strokeWidth={1.75} />
       </button>
 
