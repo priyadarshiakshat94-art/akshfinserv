@@ -20,7 +20,7 @@ const interTight = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://akshfinserv.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://akshfinserv.net"),
   title: {
     default: "Aksh Finserv | Mutual funds in Powai, Mumbai, since 2002",
     template: "%s | Aksh Finserv",

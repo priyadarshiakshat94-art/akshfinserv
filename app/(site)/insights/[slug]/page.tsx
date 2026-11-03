@@ -15,7 +15,7 @@ import { InsightCard } from "@/components/site/insight-card";
 
 export const dynamicParams = false;
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://akshfinserv.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://akshfinserv.net";
 
 export function generateStaticParams() {
   return getAllInsights().map((i) => ({ slug: i.slug }));

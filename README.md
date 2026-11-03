@@ -1,4 +1,4 @@
-# akshfinserv.com
+# akshfinserv.net
 
 Marketing site for Aksh Finserv, Powai. Next.js 15 (App Router), Tailwind CSS v4, shadcn/ui, Framer Motion. Content is Markdown in `/content`; there is no CMS or database. Deploys to Netlify (or Vercel).
 

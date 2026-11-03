@@ -22,7 +22,7 @@ function noIndexPaths() {
 
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://akshfinserv.com",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://akshfinserv.net",
   generateRobotsTxt: true,
   exclude: ["/api/*", ...noIndexPaths()],
   robotsTxtOptions: {

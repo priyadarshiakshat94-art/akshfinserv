@@ -13,7 +13,7 @@ import { LeadBlock } from "@/components/home/lead-block";
 import { validateContentGraph } from "@/lib/content";
 import { LocalBusinessJsonLd } from "next-seo";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://akshfinserv.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://akshfinserv.net";
 
 export default function HomePage() {
   // Fails the build if an author or related slug points at a missing file.
