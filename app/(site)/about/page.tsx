@@ -11,12 +11,12 @@ import { CtaBand } from "@/components/site/cta-band";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Aksh Finserv has worked with Mumbai families from one office in Powai since 2002. Meet Plabita and Sanjiv.",
+    "Aksh Finserv has worked with Mumbai families from one office in Powai since 2004. Meet Plabita and Sanjiv.",
   alternates: { canonical: "/about" },
 };
 
 const FACTS = [
-  { value: "2002", label: "First client, Powai" },
+  { value: "2004", label: "First client, Powai" },
   { value: "1,500", label: "Families today" },
   { value: "₹250 Cr", label: "Invested through us" },
   { value: "100+", label: "Industry awards" },
@@ -29,8 +29,8 @@ export default function AboutPage() {
     <>
       <PageIntro
         eyebrow="About"
-        title="One office in Powai. 24 years. The same people answering the phone."
-        lede="Aksh Finserv started in 2002 with a handful of neighbours who wanted their insurance papers explained. Most of our clients still come the same way: someone they know sent them."
+        title="One office in Powai. 22 years. The same people answering the phone."
+        lede="Aksh Finserv started in 2004 with a handful of neighbours who wanted their insurance papers explained. Most of our clients still come the same way: someone they know sent them."
       />
 
       <Section className="pt-0 lg:pt-0">

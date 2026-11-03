@@ -61,7 +61,7 @@ export const testimonialSchema = z
     clientName: z.string().min(1),
     clientRole: z.string().optional(),
     city: z.string().default("Mumbai"),
-    yearJoined: z.number().int().min(2002).max(new Date().getFullYear()),
+    yearJoined: z.number().int().min(2004).max(new Date().getFullYear()),
     photo: z.string().startsWith("/images/testimonials/").optional(),
     photoAlt: z.string().optional(),
     consentGiven: z.boolean(),

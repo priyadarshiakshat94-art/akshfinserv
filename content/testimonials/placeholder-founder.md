@@ -2,7 +2,7 @@
 # PLACEHOLDER TESTIMONIAL. Not a real client quote.
 # Replace with a real quote and written client consent before launch.
 # consentGiven: false keeps this off the production site.
-quote: "My father has been a client since 2003. When I sold my first company, Aksh Finserv was the first call I made."
+quote: "My father has been a client since 2005. When I sold my first company, Aksh Finserv was the first call I made."
 clientName: "Placeholder Client C"
 clientRole: "Founder"
 city: "Pune"

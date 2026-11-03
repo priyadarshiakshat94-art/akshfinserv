@@ -54,7 +54,7 @@ export function SiteFooter() {
             <Link href="/" aria-label="Aksh Finserv, home" className="inline-block">
               <Image
                 src="/brand/logo-horizontal-light-on-dark.svg"
-                alt="Aksh Finserv, Powai, since 2002"
+                alt="Aksh Finserv, Powai, since 2004"
                 width={330}
                 height={85}
                 unoptimized
@@ -117,7 +117,7 @@ export function SiteFooter() {
             solicitation.
           </p>
           <div className="flex flex-col gap-2 pt-4 sm:flex-row sm:justify-between">
-            <p>© {new Date().getFullYear()} Aksh Finserv. Powai, Mumbai. Since 2002.</p>
+            <p>© {new Date().getFullYear()} Aksh Finserv. Powai, Mumbai. Since 2004.</p>
             <p className="flex gap-5">
               <Link href="/disclosures" className="hover:text-ink">Disclosures</Link>
               <Link href="/privacy" className="hover:text-ink">Privacy</Link>

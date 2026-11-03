@@ -22,11 +22,11 @@ const interTight = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://akshfinserv.net"),
   title: {
-    default: "Aksh Finserv | Mutual funds in Powai, Mumbai, since 2002",
+    default: "Aksh Finserv | Mutual funds in Powai, Mumbai, since 2004",
     template: "%s | Aksh Finserv",
   },
   description:
-    "AMFI-registered mutual fund distributor in Powai, Mumbai. ₹250 Cr invested through us by 1,500 families since 2002.",
+    "AMFI-registered mutual fund distributor in Powai, Mumbai. ₹250 Cr invested through us by 1,500 families since 2004.",
 };
 
 export const viewport: Viewport = {
