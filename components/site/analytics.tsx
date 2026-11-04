@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
+import { trackEvent } from "@/lib/track";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA4_ID;
 const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
@@ -25,6 +26,23 @@ function PixelPageViews() {
   return null;
 }
 
+// One listener for every contact link on the site: phone, email and Maps, wherever they appear.
+function ContactClicks() {
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      const a = (e.target as Element | null)?.closest?.("a");
+      const href = a?.getAttribute("href") ?? "";
+      const where = window.location.pathname;
+      if (href.startsWith("tel:")) trackEvent("phone_click", { page: where });
+      else if (href.startsWith("mailto:")) trackEvent("email_click", { page: where });
+      else if (/google\.com\/maps|maps\.google\.com|\/directions$/.test(href)) trackEvent("directions_click", { page: where });
+    };
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, []);
+  return null;
+}
+
 /** Loads GA4 and Meta Pixel only when their IDs are set, and Vercel Analytics only on Vercel. */
 export function Analytics() {
   return (
@@ -34,6 +52,7 @@ export function Analytics() {
       {GA_ID ? (
         <>
           <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+          <ContactClicks />
           <Script id="ga4-init" strategy="afterInteractive">
             {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','${GA_ID}');`}
           </Script>

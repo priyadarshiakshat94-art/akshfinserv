@@ -72,8 +72,14 @@ export function SiteFooter() {
               Mumbai 400076
             </address>
             <a
+              href="tel:+919820932489"
+              className="mt-4 block text-sm text-ink underline decoration-line-hover underline-offset-4 hover:decoration-gold"
+            >
+              +91 98209 32489
+            </a>
+            <a
               href="mailto:plabita@akshfinserv.com"
-              className="mt-4 inline-block text-sm text-ink underline decoration-line-hover underline-offset-4 hover:decoration-gold"
+              className="mt-2 inline-block text-sm text-ink underline decoration-line-hover underline-offset-4 hover:decoration-gold"
             >
               plabita@akshfinserv.com
             </a>

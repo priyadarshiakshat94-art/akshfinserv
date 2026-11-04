@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Analytics } from "@/components/site/analytics";
+import { BusinessJsonLd } from "@/components/site/business-json-ld";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 // Self-hosted so builds never depend on fetching from Google Fonts.
@@ -20,7 +22,7 @@ const interTight = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://akshfinserv.net"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Aksh Finserv | Mutual funds in Powai, Mumbai, since 2004",
     template: "%s | Aksh Finserv",
@@ -47,6 +49,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         {children}
         <Analytics />
+        <BusinessJsonLd />
       </body>
     </html>
   );

@@ -22,7 +22,8 @@ function noIndexPaths() {
 
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://akshfinserv.net",
+  // Hard-coded: the Netlify env var pointed at akshfinserv.netlify.app.
+  siteUrl: "https://akshfinserv.net",
   generateRobotsTxt: true,
   exclude: ["/api/*", ...noIndexPaths()],
   robotsTxtOptions: {

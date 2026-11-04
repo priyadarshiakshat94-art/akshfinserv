@@ -6,3 +6,24 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# Send the old Netlify address to the real domain, so Google indexes one site, not two.
+[[redirects]]
+  from = "https://akshfinserv.netlify.app/*"
+  to = "https://akshfinserv.net/:splat"
+  status = 301
+  force = true
+
+# Short links for print, QR codes and social bios. Point them at the Google Business Profile's
+# own place links once the profile is verified; the printed QR codes then never need to change.
+[[redirects]]
+  from = "/directions"
+  to = "https://www.google.com/maps/dir/?api=1&destination=Powai+Plaza%2C+Central+Avenue%2C+Hiranandani+Gardens%2C+Powai%2C+Mumbai+400076"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/map"
+  to = "https://maps.google.com/?cid=2753947715952180411"
+  status = 302
+  force = true

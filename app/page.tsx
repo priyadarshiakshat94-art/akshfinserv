@@ -12,9 +12,6 @@ import { InsightsPreview } from "@/components/home/insights-preview";
 import { CalculatorsTeaser } from "@/components/home/calculators-teaser";
 import { LeadBlock } from "@/components/home/lead-block";
 import { validateContentGraph } from "@/lib/content";
-import { LocalBusinessJsonLd } from "next-seo";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://akshfinserv.net";
 
 export default function HomePage() {
   // Fails the build if an author or related slug points at a missing file.
@@ -40,21 +37,6 @@ export default function HomePage() {
         <LeadBlock />
       </main>
       <SiteFooter />
-      <LocalBusinessJsonLd
-        useAppDir
-        type="FinancialService"
-        id={`${SITE_URL}/#business`}
-        name="Aksh Finserv"
-        description="AMFI-registered mutual fund distributor in Powai, Mumbai, serving families since 2004."
-        url={SITE_URL}
-        address={{
-          streetAddress: "363, Powai Plaza, Central Avenue, Hiranandani Gardens",
-          addressLocality: "Mumbai",
-          addressRegion: "Maharashtra",
-          postalCode: "400076",
-          addressCountry: "IN",
-        }}
-      />
     </>
   );
 }

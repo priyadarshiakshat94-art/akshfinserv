@@ -12,10 +12,9 @@ import { CATEGORY_LABEL, fmtDate } from "@/lib/format";
 import { Section, SectionHeading } from "@/components/site/section";
 import { CtaBand } from "@/components/site/cta-band";
 import { InsightCard } from "@/components/site/insight-card";
+import { SITE_URL } from "@/lib/site";
 
 export const dynamicParams = false;
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://akshfinserv.net";
 
 export function generateStaticParams() {
   return getAllInsights().map((i) => ({ slug: i.slug }));
