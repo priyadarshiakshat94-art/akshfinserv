@@ -19,7 +19,7 @@ export default function ContactPage() {
       <PageIntro
         eyebrow="Contact"
         title="Leave a number. We call back within one working day."
-        lede="Or call, or visit us at Powai Plaza, Hiranandani Gardens. Visits are by appointment."
+        lede="Or call, or visit us at Powai Plaza, Hiranandani Gardens. We are in Monday to Friday, 9 am to 5 pm."
       />
       <Section className="pt-0 lg:pt-0">
         <div className="grid gap-4 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
@@ -40,8 +40,8 @@ export default function ContactPage() {
                 Mumbai 400076
               </address>
               <p className="mt-4 text-sm leading-relaxed text-[#5c574f]">
-                Office 363 in Powai Plaza, at the Central Avenue end of Hiranandani Gardens. Visits are by
-                appointment, so call ahead and one of us will be in.
+                Office 363 in Powai Plaza, at the Central Avenue end of Hiranandani Gardens. Open Monday to Friday,
+                9 am to 5 pm. Walk in, or call ahead to book a time.
               </p>
               <p className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
                 <a
@@ -66,6 +66,10 @@ export default function ContactPage() {
               <Phone className="size-5 text-ink-secondary" strokeWidth={1.5} />
               <p className="mt-8 text-sm text-ink-secondary">Call</p>
               <p className="mt-2 font-display text-xl text-ink">{BUSINESS.phoneDisplay}</p>
+            </a>
+            <a href={`tel:${BUSINESS.phone2E164}`} className="-mt-2 card-lift rounded-card bg-elevated px-8 py-5">
+              <p className="text-sm text-ink-secondary">Or</p>
+              <p className="mt-1 font-display text-xl text-ink">{BUSINESS.phone2Display}</p>
             </a>
             <a href="mailto:plabita@akshfinserv.com" className="card-lift rounded-card bg-elevated p-8">
               <Mail className="size-5 text-ink-secondary" strokeWidth={1.5} />

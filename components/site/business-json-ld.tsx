@@ -1,6 +1,7 @@
 import { BUSINESS, SITE_URL } from "@/lib/site";
 
-// Schema.org description of the business. No ratings, reviews, hours or coordinates until each is verified.
+// Schema.org description of the business. Hours confirmed by Plabita (Mon–Fri, 9–5). No ratings, reviews or
+// coordinates until each is verified.
 export function BusinessJsonLd() {
   const a = BUSINESS.address;
   const data = {
@@ -14,8 +15,20 @@ export function BusinessJsonLd() {
     logo: `${SITE_URL}/apple-icon.png`,
     image: `${SITE_URL}/apple-icon.png`,
     telephone: BUSINESS.phoneE164,
+    contactPoint: [BUSINESS.phoneE164, BUSINESS.phone2E164].map((telephone) => ({
+      "@type": "ContactPoint",
+      telephone,
+      contactType: "customer service",
+      areaServed: "IN",
+    })),
     email: BUSINESS.email,
     foundingDate: BUSINESS.foundingYear,
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "17:00",
+    },
     address: {
       "@type": "PostalAddress",
       streetAddress: `${a.line1}, ${a.line2}`,

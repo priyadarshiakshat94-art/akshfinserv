@@ -11,6 +11,8 @@ export const BUSINESS = {
   foundingYear: "2004",
   phoneDisplay: "+91 98209 32489",
   phoneE164: "+919820932489",
+  phone2Display: "+91 99870 05783",
+  phone2E164: "+919987005783",
   email: "plabita@akshfinserv.com",
   address: {
     line1: "363, Powai Plaza, Central Avenue",
