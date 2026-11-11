@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const FACTS = [
   { value: "2004", label: "First client, Powai" },
   { value: "1,500", label: "Families today" },
-  { value: "₹250 Cr", label: "Invested through us" },
+  { value: "₹350 Cr", label: "AUM" },
   { value: "100+", label: "Industry awards" },
 ];
 
@@ -96,7 +96,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <CtaBand title="Meet us at Powai Plaza, or on a call. Either way, bring your statements." intent="call-plabita" label="Talk to Plabita" />
+      <CtaBand title="Meet us at Powai Plaza, or on a call. Either way, bring your statements." intent="call-plabita" label="Talk to our team" />
     </>
   );
 }

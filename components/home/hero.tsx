@@ -27,10 +27,10 @@ export function Hero() {
             Aksh Finserv: mutual fund distribution in Powai, Mumbai, since 2004
           </h1>
 
-          <p className="flex flex-wrap items-baseline gap-x-4 gap-y-1" aria-label="250 crore rupees invested through us">
-            <span className="display-num text-[clamp(4.5rem,13vw,10.5rem)] text-ink">₹250 Cr</span>
+          <p className="flex flex-wrap items-baseline gap-x-4 gap-y-1" aria-label="350 crore rupees in assets under management (AUM)">
+            <span className="display-num text-[clamp(4.5rem,13vw,10.5rem)] text-ink">₹350 Cr</span>
             <span className="font-display text-[clamp(1.5rem,3.4vw,2.75rem)] font-light tracking-[-0.03em] text-ink-muted">
-              invested through us
+              AUM
             </span>
           </p>
 
@@ -54,7 +54,7 @@ export function Hero() {
               href="/#book-call"
               className="group inline-flex h-13 items-center gap-2 rounded-pill bg-gold px-7 text-[0.95rem] font-medium text-ink-dark transition-colors duration-200 hover:bg-gold-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
             >
-              Talk to Plabita
+              Talk to our team
               <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" strokeWidth={1.75} />
             </Link>
           </div>

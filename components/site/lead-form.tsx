@@ -8,7 +8,7 @@ import { trackLead } from "@/lib/track";
 
 const INTENT_LABEL: Record<Lead["intent"], string> = {
   "portfolio-review": "Review my portfolio",
-  "call-plabita": "Talk to Plabita",
+  "call-plabita": "Talk to our team",
   general: "Something else",
 };
 
@@ -192,7 +192,7 @@ export function LeadForm({
           t.button,
         )}
       >
-        {status.kind === "sending" ? "Sending" : full ? "Send" : "Talk to Plabita"}
+        {status.kind === "sending" ? "Sending" : full ? "Send" : "Talk to our team"}
         <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" strokeWidth={1.75} />
       </button>
 

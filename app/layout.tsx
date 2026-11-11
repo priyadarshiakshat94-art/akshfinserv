@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s | Aksh Finserv",
   },
   description:
-    "AMFI-registered mutual fund distributor in Powai, Mumbai. ₹250 Cr invested through us by 1,500 families since 2004.",
+    "AMFI-registered mutual fund distributor in Powai, Mumbai. ₹350 Cr AUM, serving 1,500 families since 2004.",
 };
 
 export const viewport: Viewport = {

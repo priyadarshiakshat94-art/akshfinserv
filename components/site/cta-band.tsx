@@ -5,7 +5,7 @@ import { Section } from "@/components/site/section";
 export function CtaBand({
   title = "Bring us your statements. Leave with one page that makes sense of them.",
   intent = "call-plabita",
-  label = "Talk to Plabita",
+  label = "Talk to our team",
 }: {
   title?: string;
   intent?: string;

@@ -229,7 +229,7 @@ export function OnePageTest() {
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" strokeWidth={1.75} />
             </button>
             <button type="button" className={ghost} onClick={() => go("invite")}>
-              Talk to Plabita instead
+              Talk to our team instead
             </button>
           </div>
           <p className="mt-6 text-sm text-ink-muted">
@@ -459,7 +459,7 @@ export function OnePageTest() {
                 {note}
               </p>
               <button type="button" className={cn(primary, "sm:self-start")} onClick={() => go("invite")}>
-                Want a hand? Talk to Plabita
+                Want a hand? Talk to our team
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" strokeWidth={1.75} />
               </button>
             </div>
