@@ -59,8 +59,11 @@ const byDateDesc = (a: { publishedAt: string }, b: { publishedAt: string }) =>
 const byOrder = (a: { order: number }, b: { order: number }) => a.order - b.order;
 
 // Insights
+// Drafts (draft: true) only render in development, like unconsented testimonials.
 export const getAllInsights = cache((): WithBody<Insight>[] =>
-  loadCollection("insights", insightSchema).sort(byDateDesc),
+  loadCollection("insights", insightSchema)
+    .filter((i) => !i.draft || process.env.NODE_ENV !== "production")
+    .sort(byDateDesc),
 );
 export const getInsightBySlug = (slug: string) =>
   getAllInsights().find((i) => i.slug === slug) ?? null;

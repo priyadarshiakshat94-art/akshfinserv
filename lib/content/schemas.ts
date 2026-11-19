@@ -37,6 +37,14 @@ export const insightSchema = z
     publishedAt: isoDate,
     readTime: z.number().int().positive(),
     related: z.array(z.string()).max(3).optional(),
+    // Date the facts were last checked. Shown as "Last reviewed" and used as dateModified.
+    updatedAt: isoDate.optional(),
+    // Drafts render in development only, never on the live site or in the sitemap.
+    draft: z.boolean().default(false),
+    // The one next step offered at the end: the One-Page Test, or a call with the team.
+    cta: z.enum(["one-page", "talk"]).default("talk"),
+    // Official sources cited in the article, listed under "Sources".
+    sources: z.array(z.object({ title: z.string().min(1), url: z.string().url() }).strict()).default([]),
     seo: seoSchema,
   })
   .strict();

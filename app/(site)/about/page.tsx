@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { getAllTeam } from "@/lib/content";
+import { SITE_URL } from "@/lib/site";
 import { Markdown } from "@/lib/mdx";
 import { publicFileExists } from "@/lib/assets";
 import { PageIntro } from "@/components/site/page-intro";
@@ -48,6 +49,23 @@ export default function AboutPage() {
         </dl>
       </Section>
 
+      {/* Person markup lets search engines connect article bylines to the people behind them. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            team.map((m) => ({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: m.name,
+              jobTitle: m.role,
+              url: `${SITE_URL}/about#${m.slug}`,
+              worksFor: { "@type": "Organization", name: "Aksh Finserv", url: SITE_URL },
+              ...(m.linkedin ? { sameAs: [m.linkedin] } : {}),
+            })),
+          ),
+        }}
+      />
       <Section className="pt-0 lg:pt-0">
         <SectionHeading eyebrow="The people" title="Two people. Every client knows both by first name." />
         <div className="space-y-4">

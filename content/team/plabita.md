@@ -10,6 +10,7 @@ credentials:
   - "Kotak Life Living Legend"
 photo: "/images/team/plabita.jpg"
 photoAlt: "Plabita Priyadarshi, Founder and Managing Director of Aksh Finserv"
+linkedin: "https://www.linkedin.com/in/plabita-priyadarshi-43492643"
 order: 1
 ---
 

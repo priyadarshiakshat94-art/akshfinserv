@@ -2,7 +2,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const matter = require("gray-matter");
 
-// Pages whose frontmatter sets seo.noIndex: true stay out of the sitemap.
+// Pages whose frontmatter sets seo.noIndex: true, or draft: true, stay out of the sitemap.
 function noIndexPaths() {
   const sets = [
     ["insights", "/insights"],
@@ -14,7 +14,7 @@ function noIndexPaths() {
     if (!fs.existsSync(dir)) continue;
     for (const file of fs.readdirSync(dir).filter((f) => /\.mdx?$/.test(f))) {
       const { data } = matter(fs.readFileSync(path.join(dir, file), "utf8"));
-      if (data.seo && data.seo.noIndex) out.push(`${prefix}/${file.replace(/\.mdx?$/, "")}`);
+      if ((data.seo && data.seo.noIndex) || data.draft) out.push(`${prefix}/${file.replace(/\.mdx?$/, "")}`);
     }
   }
   return out;

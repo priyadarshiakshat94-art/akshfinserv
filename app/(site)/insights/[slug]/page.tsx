@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-import { ArticleJsonLd } from "next-seo";
+import { ArticleJsonLd, BreadcrumbJsonLd } from "next-seo";
 import { getAllInsights, getInsightBySlug, getTeamBySlug } from "@/lib/content";
 import { Markdown } from "@/lib/mdx";
 import { seoMetadata } from "@/lib/seo";
@@ -62,13 +62,23 @@ export default async function InsightPage({ params }: Props) {
             </Link>
             <span className="text-ink-muted">
               {fmtDate(p.publishedAt)} · {p.readTime} min read
+              {p.updatedAt ? <> · Last reviewed {fmtDate(p.updatedAt)}</> : null}
             </span>
+            {p.draft ? (
+              <span className="rounded-pill border border-current/30 px-3 py-1 text-xs uppercase tracking-[0.14em] text-gold">
+                Draft. Not on the live site.
+              </span>
+            ) : null}
           </div>
           <h1 className="mt-6 max-w-[56rem] text-[clamp(2.4rem,5.4vw,4.5rem)] text-ink">{p.title}</h1>
           <p className="mt-6 max-w-[42rem] text-lg text-ink-secondary">{p.excerpt}</p>
           {author ? (
             <p className="mt-8 text-sm text-ink-muted">
-              By <span className="text-ink">{author.name}</span>, {author.role}
+              By{" "}
+              <Link href={`/about#${author.slug}`} className="text-ink underline-offset-4 hover:underline">
+                {author.name}
+              </Link>
+              , {author.role}, Aksh Finserv · AMFI-registered Mutual Fund Distributor, ARN-121998
             </p>
           ) : null}
         </header>
@@ -84,6 +94,35 @@ export default async function InsightPage({ params }: Props) {
         <div className="mx-auto w-full max-w-[1320px] px-5 py-12 sm:px-8 lg:py-16">
           <div className="max-w-[42rem]">
             <Markdown source={p.body} />
+
+            {p.sources.length ? (
+              <section className="mt-14 border-t border-line pt-8" aria-labelledby="sources">
+                <h2 id="sources" className="text-xl text-ink">
+                  Sources
+                </h2>
+                <ul className="mt-4 space-y-2 text-sm text-ink-secondary">
+                  {p.sources.map((s) => (
+                    <li key={s.url}>
+                      <a href={s.url} target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:text-ink hover:underline">
+                        {s.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ) : null}
+
+            <aside className="mt-12 rounded-card bg-elevated p-6 text-xs leading-relaxed text-ink-muted">
+              <p>
+                Aksh Finserv is an AMFI-registered Mutual Fund Distributor (ARN-121998). We are not a SEBI-registered
+                investment adviser, and this article is general education, not a recommendation to buy, sell or hold any
+                product. Any figures are illustrations only.
+              </p>
+              <p className="mt-2">
+                Mutual fund investments are subject to market risks. Read all scheme related documents carefully before
+                investing.
+              </p>
+            </aside>
           </div>
         </div>
         <ArticleJsonLd
@@ -93,8 +132,17 @@ export default async function InsightPage({ params }: Props) {
           description={p.excerpt}
           images={hasCover ? [`${SITE_URL}${p.coverImage}`] : []}
           datePublished={p.publishedAt}
+          dateModified={p.updatedAt ?? p.publishedAt}
           authorName={author?.name ?? "Aksh Finserv"}
           publisherName="Aksh Finserv"
+        />
+        <BreadcrumbJsonLd
+          useAppDir
+          itemListElements={[
+            { position: 1, name: "Home", item: SITE_URL },
+            { position: 2, name: "Insights", item: `${SITE_URL}/insights` },
+            { position: 3, name: p.title, item: `${SITE_URL}/insights/${p.slug}` },
+          ]}
         />
       </article>
 
@@ -109,7 +157,15 @@ export default async function InsightPage({ params }: Props) {
         </Section>
       ) : null}
 
-      <CtaBand title="Want these numbers run on your own portfolio?" />
+      {p.cta === "one-page" ? (
+        <CtaBand
+          title="Could your family's money fit on one page? See yours in two minutes."
+          label="Take the One-Page Test"
+          href="/one-page"
+        />
+      ) : (
+        <CtaBand title="Questions about your own situation? Talk to the team." />
+      )}
     </>
   );
 }
