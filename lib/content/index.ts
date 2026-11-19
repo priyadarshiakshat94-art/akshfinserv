@@ -23,7 +23,7 @@ export type WithBody<T> = T & { body: string };
 
 // Reads every .md/.mdx file in a collection and validates its frontmatter.
 // Any invalid file throws, which fails `next build`.
-function loadCollection<S extends z.ZodTypeAny>(
+function loadCollection<S extends z.ZodType<object>>(
   folder: string,
   schema: S,
 ): WithBody<z.output<S>>[] {
