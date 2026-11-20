@@ -65,7 +65,7 @@ export function NewsletterForm() {
           {error}
         </p>
       ) : (
-        <p className="mt-2 px-2 text-xs text-ink-muted">Market notes and planning maths. Unsubscribe any time.</p>
+        <p className="mt-2 px-2 text-xs text-ink-muted">One thing to check in your family&apos;s money, once a month. Unsubscribe any time.</p>
       )}
     </form>
   );

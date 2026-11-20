@@ -23,6 +23,7 @@ const COLUMNS: { title: string; links: NavLink[] }[] = [
     links: [
       { href: "/how-we-work", label: "How we work" },
       { href: "/about", label: "About" },
+      { href: "/family-finances", label: "Family Money Guide" },
       { href: "/insights", label: "Insights" },
       { href: "/contact", label: "Contact" },
     ],

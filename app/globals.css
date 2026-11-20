@@ -207,6 +207,22 @@
   .prose-aksh li::marker {
     color: var(--accent);
   }
+  /* Cards, checklists and figures placed inside article text keep their own styling. */
+  .prose-aksh .not-prose ul,
+  .prose-aksh .not-prose ol {
+    list-style: none;
+    padding-left: 0;
+  }
+  .prose-aksh .not-prose li + li {
+    margin-top: 0;
+  }
+  .prose-aksh .not-prose a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .prose-aksh .not-prose p a {
+    text-decoration: underline;
+  }
   .prose-table {
     overflow-x: auto;
     border: 1px solid var(--border-subtle);

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowLeft, ArrowRight, BellRing, Copy, Send } from "lucide-react";
 import { BookCallForm } from "@/components/site/book-call-form";
 import { trackEvent } from "@/lib/track";
+import { AREA_TO_SECTION, guideHref } from "@/lib/family-guide";
 import { ANSWERS, BANDS, MAX_POINTS, QUESTIONS, bandFor, pointsFor, type Answer } from "@/lib/one-page";
 import { cn } from "@/lib/utils";
 
@@ -424,6 +425,15 @@ export function OnePageTest() {
                   <li key={qq.area} className="grid gap-1 rounded-[20px] bg-elevated-2 p-5">
                     <span className="font-medium text-ink">{qq.fix}</span>
                     <span className="text-sm text-ink-secondary">{qq.how}</span>
+                    {AREA_TO_SECTION[qq.area] ? (
+                      <a
+                        href={guideHref(AREA_TO_SECTION[qq.area])}
+                        onClick={() => trackEvent("one_page_guide_click", { area: qq.area })}
+                        className="mt-1 text-sm text-gold underline-offset-4 hover:underline"
+                      >
+                        How to do this, step by step
+                      </a>
+                    ) : null}
                   </li>
                 ))}
               </ul>

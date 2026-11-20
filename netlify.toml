@@ -27,3 +27,9 @@
   to = "https://maps.google.com/?cid=2753947715952180411"
   status = 302
   force = true
+
+# The workbook PDF is delivered by email and from the guide; keep it out of search results.
+[[headers]]
+  for = "/downloads/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"

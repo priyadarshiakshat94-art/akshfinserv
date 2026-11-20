@@ -26,6 +26,9 @@ export function OnePageBand() {
             Take the test
             <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" strokeWidth={1.75} />
           </Link>
+          <Link href="/family-finances" className="mt-5 block text-sm text-ink-secondary underline decoration-gold underline-offset-4 hover:text-ink">
+            Or read the Family Money Guide: what goes on each line, and why
+          </Link>
         </div>
         <div aria-hidden className="rounded-[6px] bg-surface-light px-6 pb-3 pt-5 text-[#24211c]">
           <p className="border-b-2 border-gold pb-3 text-[10px] font-medium tracking-[0.3em] text-[#6d675d]">ONE PAGE</p>

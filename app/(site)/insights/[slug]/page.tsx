@@ -13,6 +13,7 @@ import { Section, SectionHeading } from "@/components/site/section";
 import { CtaBand } from "@/components/site/cta-band";
 import { InsightCard } from "@/components/site/insight-card";
 import { SITE_URL } from "@/lib/site";
+import { GUIDE_SECTIONS, guideHref } from "@/lib/family-guide";
 
 export const dynamicParams = false;
 
@@ -70,6 +71,14 @@ export default async function InsightPage({ params }: Props) {
               </span>
             ) : null}
           </div>
+          {p.guideSection ? (
+            <p className="mt-6 text-sm text-ink-secondary">
+              Part of{" "}
+              <Link href={guideHref(p.guideSection)} className="text-ink underline decoration-gold underline-offset-4">
+                The Family Money Guide: {GUIDE_SECTIONS.find((s) => s.id === p.guideSection)?.label}
+              </Link>
+            </p>
+          ) : null}
           <h1 className="mt-6 max-w-[56rem] text-[clamp(2.4rem,5.4vw,4.5rem)] text-ink">{p.title}</h1>
           <p className="mt-6 max-w-[42rem] text-lg text-ink-secondary">{p.excerpt}</p>
           {author ? (

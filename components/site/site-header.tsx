@@ -4,6 +4,7 @@ import { BrandLogo } from "@/components/site/brand-logo";
 const NAV = [
   { href: "/how-we-work", label: "How we work" },
   { href: "/offerings", label: "Offerings" },
+  { href: "/family-finances", label: "Family guide" },
   { href: "/insights", label: "Insights" },
   { href: "/about", label: "About" },
 ];

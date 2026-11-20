@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Check } from "lucide-react";
@@ -10,6 +11,7 @@ import { PageIntro } from "@/components/site/page-intro";
 import { Section, SectionHeading } from "@/components/site/section";
 import { CtaBand } from "@/components/site/cta-band";
 import { InsightCard } from "@/components/site/insight-card";
+import { guideHref, type GuideSectionId } from "@/lib/family-guide";
 
 export const dynamicParams = false;
 
@@ -29,6 +31,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     image: publicFileExists(o.coverImage) ? o.coverImage : undefined,
   });
 }
+
+const GUIDE_FOR: Record<string, { id: GuideSectionId; text: string }> = {
+  "mutual-funds": { id: "investments", text: "How to list every fund your family holds" },
+  "equity-and-etfs": { id: "investments", text: "How to list every investment your family holds" },
+  nps: { id: "goals", text: "How to give each investment a goal and a year" },
+  "loan-against-mutual-funds": { id: "loans", text: "How to keep track of what the family owes" },
+  insurance: { id: "insurance", text: "How to check what your family is covered for" },
+};
 
 export default async function OfferingPage({ params }: Props) {
   const o = getOfferingBySlug((await params).slug);
@@ -54,6 +64,15 @@ export default async function OfferingPage({ params }: Props) {
                 </li>
               ))}
             </ul>
+            {GUIDE_FOR[o.slug] ? (
+              <Link
+                href={guideHref(GUIDE_FOR[o.slug].id)}
+                className="mt-8 block border-t border-line pt-6 text-sm text-ink-secondary hover:text-ink"
+              >
+                <span className="eyebrow mb-2 block">Learn first</span>
+                {GUIDE_FOR[o.slug].text} →
+              </Link>
+            ) : null}
           </aside>
         </div>
       </Section>

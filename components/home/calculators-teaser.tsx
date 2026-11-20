@@ -9,7 +9,7 @@ const CALCS = [
     name: "SIP",
     question: "What does ₹10,000 a month become in 15 years?",
     sample: { value: "₹50.5", unit: "lakh" },
-    note: "at 12% a year",
+    note: "illustration at 12% a year",
   },
   {
     href: "/calculators/retirement",

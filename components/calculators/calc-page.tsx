@@ -50,6 +50,13 @@ export function CalcPage({
             {notes.map((n) => (
               <li key={n}>{n}</li>
             ))}
+            <li>
+              A calculator answers one question. To see how it fits with everything else your family holds, read{" "}
+              <Link href="/family-finances#goals" className="text-ink underline decoration-gold underline-offset-4">
+                the Family Money Guide
+              </Link>
+              .
+            </li>
             <li className="text-ink-muted">
               Illustrations only, based on the assumptions you enter. Returns are not guaranteed. Mutual fund
               investments are subject to market risks; read all scheme related documents carefully.

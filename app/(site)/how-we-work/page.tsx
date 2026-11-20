@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageIntro } from "@/components/site/page-intro";
 import { Section, SectionHeading } from "@/components/site/section";
@@ -128,6 +129,13 @@ export default function HowWeWorkPage() {
               </li>
             ))}
           </ul>
+          <p className="mt-8 text-ink-secondary">
+            Or fill in{" "}
+            <Link href="/family-finances#workbook" className="text-ink underline decoration-gold underline-offset-4">
+              the Family Money Workbook
+            </Link>{" "}
+            first. It covers the same ground in 13 printable pages.
+          </p>
         </FadeIn>
       </Section>
 

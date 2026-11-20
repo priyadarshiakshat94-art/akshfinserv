@@ -44,6 +44,10 @@ export const insightSchema = z
     // The one next step offered at the end: the One-Page Test, or a call with the team.
     cta: z.enum(["one-page", "talk"]).default("talk"),
     // Official sources cited in the article, listed under "Sources".
+    // The Family Money Guide section this article belongs to; shown as a link at the top.
+    guideSection: z
+      .enum(["investments", "insurance", "loans", "goals", "dates", "nominees", "who-knows", "life-changes", "parents", "after-a-death", "review"])
+      .optional(),
     sources: z.array(z.object({ title: z.string().min(1), url: z.string().url() }).strict()).default([]),
     seo: seoSchema,
   })
