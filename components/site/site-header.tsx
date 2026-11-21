@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/site/brand-logo";
+import { MobileMenu } from "@/components/site/mobile-menu";
 
 const NAV = [
   { href: "/how-we-work", label: "How we work" },
@@ -22,12 +23,16 @@ export function SiteHeader() {
           </Link>
         ))}
       </nav>
-      <Link
-        href="/client-login"
-        className="rounded-pill border border-line px-4 py-2 text-sm text-ink transition-colors duration-200 hover:border-line-hover hover:bg-elevated"
-      >
-        Client login
-      </Link>
+      <div className="flex items-center gap-2">
+        <Link
+          href="/client-login"
+          // On the narrowest phones the header only has room for the logo and the menu, which also has Client login.
+          className="hidden rounded-pill border border-line px-4 py-2 text-sm text-ink transition-colors duration-200 hover:border-line-hover hover:bg-elevated min-[370px]:inline-block"
+        >
+          Client login
+        </Link>
+        <MobileMenu items={NAV} />
+      </div>
     </header>
   );
 }
