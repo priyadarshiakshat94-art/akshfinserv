@@ -1,0 +1,35 @@
+# Aksh Finserv
+
+> Aksh Finserv is an AMFI-registered Mutual Fund Distributor (ARN-121998) at 363, Powai Plaza, Hiranandani Gardens, Powai, Mumbai 400076, working with families since 2004. It helps families organise their investments, insurance, loans and goals, and distributes mutual funds, NPS and insurance. It is not a SEBI-registered investment adviser; content on this site is general information, not personal investment advice.
+
+The site's main resource is the Family Money Guide, a free guide to putting a family's money in one place: what you have, what it's for, when you'll need it, who the nominees are, and who at home can find it. The One-Page Test is a free two-minute self-check with no sign-up.
+
+## Guides and tools
+
+- [The Family Money Guide](https://akshfinserv.net/family-finances): how an Indian family can organise its investments, insurance, loans, goals, nominees and family access, plus what to update when life changes, how to help parents, and what to do after a death in the family
+- [The One-Page Test](https://akshfinserv.net/one-page): seven questions about where a family's financial records are, not how much they hold
+- [How to put your family's money on one page](https://akshfinserv.net/insights/family-money-on-one-page): a step-by-step method with an illustrative example
+- [SIP calculator](https://akshfinserv.net/calculators/sip): what a monthly amount could grow to at a rate you choose (illustration only)
+- [Retirement calculator](https://akshfinserv.net/calculators/retirement): roughly how large a retirement corpus may need to be (illustration only)
+- [Loan vs liquidate calculator](https://akshfinserv.net/calculators/loan-vs-liquidate): the cost of borrowing against mutual funds compared with redeeming them
+
+## Articles
+
+- [The real cost of surrendering a traditional insurance policy](https://akshfinserv.net/insights/cost-of-surrendering-traditional-policy)
+- [Loan against mutual funds vs breaking your SIP](https://akshfinserv.net/insights/loan-against-mutual-funds-vs-breaking-sip)
+- [Why your SIP is not the enemy in a down market](https://akshfinserv.net/insights/sip-in-a-down-market)
+- [A Mumbai family's retirement math at 45](https://akshfinserv.net/insights/retirement-math-at-45): an illustration with made-up figures
+- [What the latest NPS rules mean for salaried professionals](https://akshfinserv.net/insights/nps-rules-for-salaried-professionals)
+- [All articles](https://akshfinserv.net/insights) · [RSS feed](https://akshfinserv.net/insights/rss.xml)
+
+## About the firm
+
+- [How we work](https://akshfinserv.net/how-we-work): assessment, execution through NJ Wealth's platform, and ongoing tracking
+- [About and team](https://akshfinserv.net/about): Plabita Priyadarshi, Founder and Managing Director, and Sanjiv P, Founder
+- [Offerings](https://akshfinserv.net/offerings): mutual funds, equity and ETFs, NPS, loans against mutual funds, insurance
+- [Contact](https://akshfinserv.net/contact): +91 98209 32489 · plabita@akshfinserv.com
+
+## Optional
+
+- [Disclosures](https://akshfinserv.net/disclosures)
+- [Privacy policy](https://akshfinserv.net/privacy)

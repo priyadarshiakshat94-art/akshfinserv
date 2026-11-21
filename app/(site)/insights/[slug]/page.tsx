@@ -62,8 +62,13 @@ export default async function InsightPage({ params }: Props) {
               {CATEGORY_LABEL[p.category]}
             </Link>
             <span className="text-ink-muted">
-              {fmtDate(p.publishedAt)} · {p.readTime} min read
-              {p.updatedAt ? <> · Last reviewed {fmtDate(p.updatedAt)}</> : null}
+              <time dateTime={p.publishedAt.slice(0, 10)}>{fmtDate(p.publishedAt)}</time> · {p.readTime} min read
+              {p.updatedAt ? (
+                <>
+                  {" "}
+                  · Last reviewed <time dateTime={p.updatedAt.slice(0, 10)}>{fmtDate(p.updatedAt)}</time>
+                </>
+              ) : null}
             </span>
             {p.draft ? (
               <span className="rounded-pill border border-current/30 px-3 py-1 text-xs uppercase tracking-[0.14em] text-gold">

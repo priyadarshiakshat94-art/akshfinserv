@@ -40,6 +40,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en-IN" className={`${inter.variable} ${interTight.variable}`}>
       <head>
+        <link rel="alternate" type="application/rss+xml" title="Aksh Finserv Insights" href="/insights/rss.xml" />
         <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="" />
         <link
           rel="stylesheet"

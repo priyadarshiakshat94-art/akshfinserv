@@ -29,13 +29,27 @@ export const metadata: Metadata = {
 
 /* ---------- small building blocks ---------- */
 
-function Part({ id, n, title, children }: { id: string; n?: string; title: string; children: React.ReactNode }) {
+function Part({
+  id,
+  n,
+  title,
+  lead,
+  children,
+}: {
+  id: string;
+  n?: string;
+  title: string;
+  // The short, direct answer to the heading's question. Shown first so readers and AI answers get it at once.
+  lead?: string;
+  children: React.ReactNode;
+}) {
   return (
     <section id={id} aria-labelledby={`${id}-h`} className="scroll-mt-20 border-t border-line pt-12 lg:scroll-mt-8">
       {n ? <p className="eyebrow mb-4">Line {n}</p> : null}
       <h2 id={`${id}-h`} className="text-[clamp(1.8rem,3.4vw,2.6rem)] text-ink">
         {title}
       </h2>
+      {lead ? <p className="mt-6 max-w-[42rem] text-lg leading-relaxed text-ink">{lead}</p> : null}
       <div className="prose-aksh mt-6">{children}</div>
     </section>
   );
@@ -179,8 +193,8 @@ export default function FamilyFinancesPage() {
             <Link href="/about#plabita" className="text-ink underline-offset-4 hover:underline">
               Plabita Priyadarshi
             </Link>
-            . Aksh Finserv is an AMFI-registered Mutual Fund Distributor, ARN-121998, in Powai since 2004. Published 20
-            November 2026.
+            . Aksh Finserv is an AMFI-registered Mutual Fund Distributor, ARN-121998, in Powai since 2004. Published{" "}
+            <time dateTime={PUBLISHED}>20 November 2026</time>.
           </p>
         </header>
 
@@ -225,10 +239,13 @@ export default function FamilyFinancesPage() {
               </div>
             </section>
 
-            <Part id="investments" n="01" title="What do we have?">
+            <Part
+              id="investments" n="01" title="What do we have?"
+              lead="List every account and investment in the family, one line each: the provider, whose name it's in, and where the statement is kept. A Consolidated Account Statement covers your mutual funds; the rest you add by hand."
+            >
               <p>
-                Start with a list, not a valuation. One line per holding: the provider, whose name it&apos;s in, and the last
-                four digits of the account or folio. Amounts can come later, or not at all.
+                Start with a list, not a valuation. Add the last four digits of each account or folio; amounts can come
+                later, or not at all.
               </p>
               <p>You don&apos;t need to remember everything. Most of it is on statements you can ask for:</p>
               <ul>
@@ -263,7 +280,10 @@ export default function FamilyFinancesPage() {
               />
             </Part>
 
-            <Part id="insurance" n="02" title="What are we covered for?">
+            <Part
+              id="insurance" n="02" title="What are we covered for?"
+              lead="List every life and health policy with who it covers and when it renews, then work out what the policies would pay if the main earner died or someone needed hospital care."
+            >
               <p>
                 List every policy, including old ones still being paid by standing instruction. For each, note the insurer,
                 the type, who is covered, the yearly premium, and the renewal or maturity date.
@@ -302,7 +322,10 @@ export default function FamilyFinancesPage() {
               />
             </Part>
 
-            <Part id="loans" n="03" title="What do we owe?">
+            <Part
+              id="loans" n="03" title="What do we owe?"
+              lead="Write down every loan in the family with its lender, monthly EMI, amount outstanding and end date, including loans against policies, gold or funds, and any loan you have guaranteed."
+            >
               <p>
                 One line per loan: lender, EMI, the amount outstanding, and the month it ends. Include loans against a
                 policy, gold or mutual funds, and any loan where you are a co-borrower or guarantor.
@@ -329,7 +352,10 @@ export default function FamilyFinancesPage() {
               />
             </Part>
 
-            <Part id="goals" n="04" title="What is the money for?">
+            <Part
+              id="goals" n="04" title="What is the money for?"
+              lead="Every investment should have a job: a named goal such as retirement, a child's college or emergencies. Money with no goal is the first thing to review."
+            >
               <p>
                 Give every holding a job. Start with up to three goals, in plain words: &ldquo;our daughter&apos;s
                 college&rdquo;, &ldquo;retirement&rdquo;, &ldquo;emergencies&rdquo;. Then write the goal next to each
@@ -352,7 +378,10 @@ export default function FamilyFinancesPage() {
               />
             </Part>
 
-            <Part id="dates" n="05" title="When will we need it?">
+            <Part
+              id="dates" n="05" title="When will we need it?"
+              lead="Put a year next to each goal. Money needed within about three years usually needs to be steady; money for goals seven or more years away can usually ride out market falls."
+            >
               <p>
                 Put a year next to each goal. A rough one is fine: &ldquo;college, 2034&rdquo;. The year matters because it
                 decides what kind of money the goal can sit in.
@@ -394,10 +423,11 @@ export default function FamilyFinancesPage() {
               />
             </Part>
 
-            <Part id="nominees" n="06" title="Who receives it?">
-              <p>
-                Check the nominee on every investment, policy, bank account, PF and NPS account. Look for three things:
-              </p>
+            <Part
+              id="nominees" n="06" title="Who receives it?"
+              lead="A nominee is the person who receives an account or policy when the holder dies. Check that every investment, policy, bank account, PF and NPS account names a nominee you would still choose today."
+            >
+              <p>Look for three things:</p>
               <ul>
                 <li>no nominee at all;</li>
                 <li>a nominee who has since died, or a relationship that has changed;</li>
@@ -431,8 +461,10 @@ export default function FamilyFinancesPage() {
               </Source>
             </Part>
 
-            <Part id="who-knows" n="07" title="Could someone at home find it?">
-              <p>This is the line that matters on the day you can&apos;t answer questions yourself.</p>
+            <Part
+              id="who-knows" n="07" title="Could someone at home find it?"
+              lead="At least one other adult at home should know the page exists, where it is kept and who to call, without needing your phone or your passwords."
+            >
               <p>
                 Pick one person, usually a spouse or a grown-up child. Show them the page and where it&apos;s kept, and talk
                 them through it once. It takes about twenty minutes.
@@ -495,13 +527,15 @@ export default function FamilyFinancesPage() {
               </div>
             </Part>
 
-            <Part id="parents" title="Doing this for your parents">
+            <Part
+              id="parents" title="Doing this for your parents"
+              lead="Start with what you're worried about, not with what they have, and find out where things are over a few conversations: banks, policies, old investments, contact details and what pays their bills."
+            >
               <p>
-                Money is hard to raise with parents. It helps to start with your worry rather than their wealth: &ldquo;If
-                something happened, I wouldn&apos;t know who to call.&rdquo; That&apos;s a question about where things are,
-                not how much there is.
+                A line that usually opens the conversation: &ldquo;If something happened, I wouldn&apos;t know who to
+                call.&rdquo; It&apos;s a question about where things are, not how much there is.
               </p>
-              <p>What to find out, gently and over more than one conversation:</p>
+              <p>What to find out:</p>
               <ul>
                 <li>Which banks they use, and whether each account has a joint holder or nominee.</li>
                 <li>Which insurers, and where the policy papers are.</li>
@@ -524,11 +558,11 @@ export default function FamilyFinancesPage() {
               <Source href="https://udgam.rbi.org.in/">RBI UDGAM portal</Source>
             </Part>
 
-            <Part id="after-a-death" title="When someone in the family has died">
-              <p>
-                You don&apos;t have to do everything at once, and very little has to be done in the first weeks. A sensible
-                order:
-              </p>
+            <Part
+              id="after-a-death" title="When someone in the family has died"
+              lead="Get copies of the death certificate, find out what existed, then ask each bank, fund house and insurer for its claim process. Very little has to be done in the first weeks."
+            >
+              <p>A sensible order:</p>
               <ol>
                 <li>Get several copies of the death certificate. Almost every claim needs one.</li>
                 <li>
