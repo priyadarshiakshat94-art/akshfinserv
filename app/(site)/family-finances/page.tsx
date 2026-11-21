@@ -198,9 +198,11 @@ export default function FamilyFinancesPage() {
           </p>
         </header>
 
-        <div className="mx-auto grid w-full max-w-[1320px] gap-10 px-5 pb-20 sm:px-8 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-16">
-          <div className="lg:order-none">
-            <GuideNav />
+        <GuideNav variant="mobile" />
+
+        <div className="mx-auto grid w-full max-w-[1320px] gap-10 px-5 pb-20 pt-8 sm:px-8 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-16 lg:pt-0">
+          <div className="hidden lg:block">
+            <GuideNav variant="desktop" />
           </div>
 
           <div className="grid max-w-[44rem] gap-14">

@@ -5,8 +5,10 @@ import { GUIDE_SECTIONS } from "@/lib/family-guide";
 import { trackEvent } from "@/lib/track";
 import { cn } from "@/lib/utils";
 
-// Contents for the Family Money Guide: a sticky list on desktop, a slim bar that opens on mobile.
-export function GuideNav() {
+// Contents for the Family Money Guide. "desktop" is the sticky list in the side column; "mobile" is the slim
+// bar that opens a list. The mobile bar must sit outside the two-column grid (as a direct child of the
+// article), or it stops sticking once its grid cell scrolls away.
+export function GuideNav({ variant }: { variant: "desktop" | "mobile" }) {
   const [active, setActive] = useState<string>("");
   const [open, setOpen] = useState(false);
 
@@ -49,14 +51,17 @@ export function GuideNav() {
     </ol>
   );
 
-  return (
-    <>
+  if (variant === "desktop") {
+    return (
       <nav aria-label="In this guide" className="hidden lg:sticky lg:top-8 lg:block">
         <p className="eyebrow mb-4 px-3">In this guide</p>
         {list}
       </nav>
+    );
+  }
 
-      <nav aria-label="In this guide" className="sticky top-0 z-30 -mx-5 border-b border-line bg-base/95 px-5 backdrop-blur sm:-mx-8 sm:px-8 lg:hidden">
+  return (
+    <nav aria-label="In this guide" className="sticky top-0 z-30 border-y border-line bg-base/95 px-5 backdrop-blur sm:px-8 lg:hidden">
         <button
           type="button"
           aria-expanded={open}
@@ -72,7 +77,6 @@ export function GuideNav() {
           </span>
         </button>
         {open ? <div className="max-h-[70vh] overflow-y-auto pb-4">{list}</div> : null}
-      </nav>
-    </>
+    </nav>
   );
 }
