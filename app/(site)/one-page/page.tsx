@@ -1,3 +1,4 @@
+import { DEFAULT_SHARE_IMAGE } from "@/lib/seo";
 import type { Metadata } from "next";
 import { OnePageTest } from "@/components/one-page/one-page-test";
 
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
     title: "The One-Page Test",
     description: "Seven questions, two minutes, no sign-up. See what's on your page and what isn't.",
     url: "/one-page",
+    images: [DEFAULT_SHARE_IMAGE],
   },
 };
 

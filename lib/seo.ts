@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 
+// The site-wide share image. Setting openGraph on a page replaces the default, so pages name it explicitly.
+export const DEFAULT_SHARE_IMAGE = "/opengraph-image.png";
+
 type Seo = { metaTitle?: string; metaDescription?: string; ogImage?: string; noIndex: boolean };
 
 // Maps a content file's `seo` block onto Next metadata, falling back to page values.
@@ -16,6 +19,7 @@ export function seoMetadata(
     description,
     alternates: { canonical: fallback.path },
     robots: seo.noIndex ? { index: false, follow: true } : undefined,
-    openGraph: { title, description, url: fallback.path, images: image ? [image] : undefined },
+    // Pages without their own image use the site's default share image (app/opengraph-image.png).
+    openGraph: { title, description, url: fallback.path, images: [image ?? DEFAULT_SHARE_IMAGE] },
   };
 }

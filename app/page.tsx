@@ -14,6 +14,7 @@ import { LeadBlock } from "@/components/home/lead-block";
 import type { Metadata } from "next";
 import { validateContentGraph } from "@/lib/content";
 import { SITE_URL } from "@/lib/site";
+import { DEFAULT_SHARE_IMAGE } from "@/lib/seo";
 
 const HOME_TITLE = "Aksh Finserv | Mutual funds in Powai, Mumbai, since 2004";
 const HOME_DESCRIPTION =
@@ -30,6 +31,7 @@ export const metadata: Metadata = {
     siteName: "Aksh Finserv",
     locale: "en_IN",
     type: "website",
+    images: [DEFAULT_SHARE_IMAGE],
   },
 };
 
